@@ -51,7 +51,6 @@ app.get('/getuser/:email',async(req,resp)=>{
 app.post('/login', async (req, resp) => {
     if (req.body.email && req.body.password) {
         let user = await User.findOne(req.body).select('-password');
-        user = user.toObject();
         // delete user.email
         // console.log(result)
         if (user) {
